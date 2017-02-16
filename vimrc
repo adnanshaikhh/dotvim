@@ -27,7 +27,15 @@ set laststatus=2
 " Colorscheme
 set t_Co=256
 colorscheme Tomorrow-Night
-set guifont=Ubuntu\ Mono\ derivative\ Powerline\ Regular\ 12
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ Regular\ 12
+  elseif has("gui_macvim")
+    set guifont=Menlo\ Regular:h14
+  elseif has("gui_win32")
+    set guifont=Ubuntu\ Mono\ derivative\ Powerlin:h12
+  endif
+endif
 set lines=35 columns=100
 set colorcolumn=80
 set cursorline
